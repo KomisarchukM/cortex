@@ -1,0 +1,102 @@
+{
+  "origin": "http://localhost:3000",
+  "verifiedAt": "2026-10-14T12:39:05.981Z",
+  "pages": [
+    "workspace",
+    "protocol",
+    "admin login",
+    "admin dashboard",
+    "session detail",
+    "assessment",
+    "results",
+    "reveal"
+  ],
+  "widths": [1440, 390],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "metrics": {
+    "domNodes": 214,
+    "scrollWidth": 1440,
+    "viewport": 1440,
+    "assets": [
+      {
+        "name": "index-DPATvWSr.js",
+        "bytes": 248343
+      },
+      {
+        "name": "index-DxUJ3FV4.css",
+        "bytes": 48680
+      },
+      {
+        "name": "context",
+        "bytes": 302
+      },
+      {
+        "name": "favicon.svg",
+        "bytes": 530
+      },
+      {
+        "name": "manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 25136
+      },
+      {
+        "name": "ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 15008
+      }
+    ],
+    "navigation": {
+      "name": "http://localhost:3000/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 41.700000047683716,
+      "navigationId": 5537,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.7000000476837158,
+      "domainLookupStart": 0.7000000476837158,
+      "domainLookupEnd": 0.7000000476837158,
+      "connectStart": 0.7000000476837158,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.7000000476837158,
+      "requestStart": 1.7000000476837158,
+      "responseStart": 3.3000001907348633,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 3.3000001907348633,
+      "responseEnd": 3.700000047683716,
+      "transferSize": 988,
+      "encodedBodySize": 688,
+      "decodedBodySize": 688,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 19.100000143051147,
+      "domContentLoadedEventStart": 40.90000009536743,
+      "domContentLoadedEventEnd": 40.90000009536743,
+      "domComplete": 41.700000047683716,
+      "loadEventStart": 41.700000047683716,
+      "loadEventEnd": 41.700000047683716,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "high"
+      }
+    }
+  },
+  "assessmentCompleted": true
+}

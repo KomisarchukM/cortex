@@ -1,0 +1,111 @@
+.workspace-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.language-select {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.language-select label {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.language-select select {
+  width: 140px;
+  min-height: 40px;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+.mode-card h3,
+.mode-card p {
+  overflow-wrap: anywhere;
+}
+.mode-duration .badge {
+  white-space: normal;
+}
+.stroop-word {
+  font-size: clamp(22px, 5.5vw, 64px);
+  letter-spacing: 1px;
+}
+.reaction-hit strong {
+  text-wrap: balance;
+  text-align: center;
+}
+.sequence-output .mono {
+  overflow-wrap: anywhere;
+}
+html[lang='uk'] .hero-meta {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+html[lang='uk'] .instrument-label {
+  max-width: 90%;
+  text-align: right;
+}
+html[lang='uk'] .badge {
+  white-space: normal;
+}
+html[lang='uk'] .page-head h1 {
+  letter-spacing: -0.7px;
+}
+html[lang='uk'] .mode-card {
+  min-height: 235px;
+}
+html[lang='uk'] .mode-duration b {
+  font-size: 22px;
+}
+html[lang='uk'] .module-intro h2 {
+  font-size: 36px;
+}
+.rule-band {
+  overflow-wrap: anywhere;
+}
+html[lang='uk'] .rule-band {
+  font-size: 10px;
+}
+@media (max-width: 650px) {
+  .workspace-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .language-select select {
+    width: 160px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .workspace-actions .badge {
+    max-width: 120px;
+  }
+  html[lang='uk'] .mode-card {
+    min-height: 275px;
+  }
+  html[lang='uk'] .mode-card h3 {
+    min-height: 54px;
+  }
+  html[lang='uk'] .module-intro h2 {
+    font-size: 30px;
+  }
+  html[lang='uk'] .multi-grid .eyebrow {
+    font-size: 9px;
+  }
+  html[lang='uk'] .option {
+    overflow-wrap: anywhere;
+  }
+  html[lang='uk'] .reaction-hit strong {
+    font-size: 22px;
+  }
+  html[lang='uk'] .word-study {
+    font-size: 22px;
+  }
+  .workspace-hero .hero-meta > span {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "cortex-laboratory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node --experimental-sqlite dist-server/server/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --experimental-sqlite --import tsx --test tests/unit.test.ts tests/integration.test.ts tests/security.test.ts tests/localization.test.ts",
+    "test:e2e": "playwright test",
+    "admin:setup": "tsx scripts/create-admin.ts",
+    "admin:generate": "tsx scripts/create-admin.ts --generate",
+    "db:migrate": "node --experimental-sqlite --import tsx scripts/database.ts migrate",
+    "db:reset": "node --experimental-sqlite --import tsx scripts/database.ts reset",
+    "demo": "node --experimental-sqlite --import tsx scripts/database.ts demo"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.12",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/express": "^5.0.5",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/pg": "^8.15.5",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "vite": "^7.2.2",
+    "typescript": "^5.9.3",
+    "tsx": "^4.20.6",
+    "@playwright/test": "^1.56.1",
+    "eslint": "^9.39.1",
+    "typescript-eslint": "^8.46.3",
+    "prettier": "^3.6.2"
+  }
+}

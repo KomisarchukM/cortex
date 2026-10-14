@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, alias TEXT NOT NULL, status TEXT NOT NULL, started_at TEXT NOT NULL, data TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS responses (session_id TEXT NOT NULL REFERENCES sessions(id) ON DELETE CASCADE, trial INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY(session_id,trial));
+CREATE TABLE IF NOT EXISTS profiles (id TEXT PRIMARY KEY, name TEXT NOT NULL, data TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS invites (token_hash TEXT PRIMARY KEY, profile_id TEXT NOT NULL REFERENCES profiles(id), created_at TEXT NOT NULL, expires_at TEXT NOT NULL, uses INTEGER NOT NULL DEFAULT 0, max_uses INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS auth_sessions (token_hash TEXT PRIMARY KEY, role TEXT NOT NULL, subject TEXT NOT NULL, csrf TEXT NOT NULL, expires_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS audit (id TEXT PRIMARY KEY, action TEXT NOT NULL, subject TEXT NOT NULL, created_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS login_limits (key TEXT PRIMARY KEY, attempts INTEGER NOT NULL, reset_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS sessions_status ON sessions(status,started_at);
+CREATE INDEX IF NOT EXISTS auth_expiry ON auth_sessions(expires_at);
+CREATE INDEX IF NOT EXISTS audit_created ON audit(created_at);

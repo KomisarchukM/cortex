@@ -1,0 +1,39 @@
+name: cortex-production
+services:
+  app:
+    build: .
+    image: cortex:${APP_TAG:?Set APP_TAG to the release commit}
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3000:3000'
+    environment:
+      NODE_ENV: production
+      APP_ORIGIN: ${APP_ORIGIN:?Set your HTTPS origin}
+      DATABASE_URL: postgres://${POSTGRES_USER:-cortex}:${POSTGRES_PASSWORD:?Set a URL-safe hex password}@db:5432/${POSTGRES_DB:-cortex}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:?Set operator username}
+      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:?Generate password hash}
+      SESSION_SECRET: ${SESSION_SECRET:?Generate session secret}
+      TRUST_PROXY: '1'
+    depends_on:
+      db:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+  db:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cortex}
+      POSTGRES_DB: ${POSTGRES_DB:-cortex}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set database password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+volumes:
+  postgres_data:

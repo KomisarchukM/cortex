@@ -1,0 +1,43 @@
+.pattern-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 330px;
+  margin: 20px auto;
+  gap: 10px;
+}
+.pattern-matrix > div {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 3px;
+}
+.detection-instrument {
+  text-align: center;
+}
+.detection-symbol {
+  font: 100px var(--mono);
+  height: 210px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+}
+.detection-instrument > .small {
+  margin-top: 22px;
+}
+.drag-field {
+  touch-action: none;
+}
+.drag-field .keyboard-cursor {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+}

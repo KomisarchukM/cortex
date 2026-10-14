@@ -1,0 +1,25 @@
+name: cortex-local
+services:
+  app:
+    build: .
+    image: cortex:${APP_TAG:-local}
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3000:3000'
+    environment:
+      NODE_ENV: production
+      APP_ORIGIN: http://localhost:3000
+      ALLOW_INSECURE_LOCAL: '1'
+      DATABASE_URL: sqlite:/app/data/cortex.db
+      ADMIN_USERNAME: ${ADMIN_USERNAME:?Run npm run admin:setup first}
+      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:?Run npm run admin:setup first}
+      SESSION_SECRET: ${SESSION_SECRET:?Run npm run admin:setup first}
+      TRUST_PROXY: '0'
+    volumes:
+      - cortex_data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  cortex_data:

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-server/
+.env
+.env.*
+!.env.example
+data/
+backups/
+test-results/
+playwright-report/
+*.log
+cortex-source.zip
